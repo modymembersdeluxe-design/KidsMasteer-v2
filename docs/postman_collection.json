@@ -1,0 +1,123 @@
+{
+  "info": {
+    "name": "KidsMaster v2 API",
+    "description": "Sample requests for KidsMaster v2 scaffold endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": "1.0.0"
+  },
+  "item": [
+    {
+      "name": "Media - Toggle Privacy",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            { "key": "action", "value": "toggle_privacy", "type": "text" },
+            { "key": "media_id", "value": "145", "type": "text" },
+            { "key": "is_private", "value": "1", "type": "text" }
+          ]
+        },
+        "url": {
+          "raw": "{{baseUrl}}/ajax/media_api.php",
+          "host": ["{{baseUrl}}"],
+          "path": ["ajax", "media_api.php"]
+        }
+      }
+    },
+    {
+      "name": "Media - Enqueue HLS",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            { "key": "action", "value": "enqueue_hls", "type": "text" },
+            { "key": "media_id", "value": "145", "type": "text" }
+          ]
+        },
+        "url": {
+          "raw": "{{baseUrl}}/ajax/media_api.php",
+          "host": ["{{baseUrl}}"],
+          "path": ["ajax", "media_api.php"]
+        }
+      }
+    },
+    {
+      "name": "Editor - Trim",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"action\": \"trim\",\n  \"media_id\": 145,\n  \"start\": 2.5,\n  \"end\": 10.0\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/ajax/editor_api.php",
+          "host": ["{{baseUrl}}"],
+          "path": ["ajax", "editor_api.php"]
+        }
+      }
+    },
+    {
+      "name": "Remix - Enqueue",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"action\": \"remix\",\n  \"media_id\": 145,\n  \"preset\": \"vhs_boost\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/ajax/remix_api.php",
+          "host": ["{{baseUrl}}"],
+          "path": ["ajax", "remix_api.php"]
+        }
+      }
+    },
+    {
+      "name": "Channel - Chat Poll",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api.php?rest=chat_poll&channel_id=15&since=0",
+          "host": ["{{baseUrl}}"],
+          "path": ["api.php"],
+          "query": [
+            { "key": "rest", "value": "chat_poll" },
+            { "key": "channel_id", "value": "15" },
+            { "key": "since", "value": "0" }
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:8000"
+    }
+  ]
+}
