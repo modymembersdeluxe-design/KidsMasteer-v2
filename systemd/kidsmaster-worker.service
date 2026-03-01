@@ -1,0 +1,16 @@
+[Unit]
+Description=KidsMaster v2 Encoding Worker
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/var/www/kidsmaster
+ExecStart=/usr/bin/php /var/www/kidsmaster/workers/worker.php
+Restart=always
+RestartSec=3
+User=www-data
+Group=www-data
+Environment=KM_ENV=production
+
+[Install]
+WantedBy=multi-user.target
